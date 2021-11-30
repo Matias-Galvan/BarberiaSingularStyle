@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Servicio;
+use App\Models\Turnero;
+use Illuminate\Support\Facades\DB;
+
+
 
 use Illuminate\Http\Request;
 
@@ -15,8 +20,12 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('admin.index')->with('clientes', $clientes);
+        $servicios = Servicio::all();
+        $turnero = DB::table('turnero')->get();
+
+        return view('admin.index', compact('servicios', 'turnero'));
+
+        // return view('cliente.perfil');
     }
 
     /**
@@ -26,7 +35,10 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        $servicios = Servicio::all();
+        $turnero = DB::table('turnero')->get();
+
+        return view('admin.crearTurnos', compact('servicios', 'turnero'));
     }
 
     /**

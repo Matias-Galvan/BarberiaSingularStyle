@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Lista de servicios</h1>
+<h1>Lista de turnos</h1>
 @stop
 
 @section('content')
@@ -16,12 +16,37 @@
             <th scope="col">ID</th>
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
+            <th scope="col">Barbero</th>
             <th scope="col">Cliente</th>
             <th scope="col">Servicio</th>
-            <th scope="col">Calificación</th>
+            <th scope="col">Estado</th>
         </tr>
     </thead>
     <tbody>
+        @foreach($turnos as $turno)
+        <tr>
+            <td>{{$turno->id}}</td>
+            <td>{{$turno->fecha}}</td>
+            <td>{{$turno->time_slot}}</td>
+            <td>{{$turno->nombre_completo}}</td>
+            <td>{{$turno->cliente_id}}</td>
+            <td>{{$turno->nombre}}</td>
+
+            <td>{{$turno->status}}</td>
+            <td>
+                <form action="" method="POST">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                </form>
+
+
+            </td>
+        </tr>
+        @endforeach
 
 
     </tbody>

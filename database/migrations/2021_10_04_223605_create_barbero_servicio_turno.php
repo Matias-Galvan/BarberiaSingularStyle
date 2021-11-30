@@ -17,23 +17,23 @@ class CreateBarberoServicioTurno extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->foreignId("barbero_id")
-            ->nullable()
-            ->constrained("barberos")
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            // $table->foreignId("barbero_id")
+            // ->nullable()
+            // ->constrained("barberos")
+            // ->cascadeOnUpdate()
+            // ->nullOnDelete();
 
-            $table->foreignId("servicio_id")
-            ->nullable()
-            ->constrained("servicios")
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            // $table->foreignId("servicio_id")
+            // ->nullable()
+            // ->constrained("servicios")
+            // ->cascadeOnUpdate()
+            // ->nullOnDelete();
 
-            $table->foreignId("turno_id")
-            ->nullable()
-            ->constrained("turnos")
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            // $table->foreignId("turno_id")
+            // ->nullable()
+            // ->constrained("turnos")
+            // ->cascadeOnUpdate()
+            // ->nullOnDelete();
         });
     }
 

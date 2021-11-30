@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TurnoController;
 use App\Models\Turno;
 use Illuminate\Support\Facades\Route;
 
@@ -21,15 +22,16 @@ Route::get('/', function () {
 Route::get('/Cuenta', function () {
     return view('cliente.cuenta');
 });
-Route::get('/Perfil', function () {
-    return view('cliente.perfil');
-});
+
+Route::resource('/Perfil', '\App\Http\Controllers\ClienteController');
 Route::get('/Nosotros', function () {
     return view('home.sobrenosotros');
 });
 Route::get('/Calendario', function () {
     return view('admin.calendario');
 });
+
+Route::get('/getHorarios', [TurnoController::class, 'getHorarios'])->name('getHorarios');
 
 Route::resource('admin/barberos', '\App\Http\Controllers\BarberoController');
 Route::resource('admin/turnos', '\App\Http\Controllers\TurnoController');
